@@ -57,7 +57,32 @@
       <div class="container">
 
         <div class="section-title">
-			<h2>Lorem ipsum</h2>
+				
+			<?php
+			 
+			// memanggil library php qrcode
+			include "phpqrcode/qrlib.php"; 
+			 
+			// nama folder tempat penyimpanan file qrcode
+			$penyimpanan = "temp/";
+			 
+			// membuat folder dengan nama "temp"
+			if (!file_exists($penyimpanan))
+			 mkdir($penyimpanan);
+			 
+			// isi qrcode yang ingin dibuat. akan muncul saat di scan
+			$isi = 'https://www.malasngoding.com'; 
+			 
+			// perintah untuk membuat qrcode dan menyimpannya dalam folder temp
+			QRcode::png($isi, $penyimpanan."qrcode_saya.png"); 
+			 
+			echo '<h2>KALIMAT 1</h2><br/>';			 
+			 // menampilkan qrcode 
+			echo '<img src="'.$penyimpanan.'qrcode_saya.png"><br/>';
+			
+			echo '<h3>KALIMAT 2</h3>';
+			?>		
+
         </div>
 
       </div>
